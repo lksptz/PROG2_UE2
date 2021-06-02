@@ -1,8 +1,8 @@
 package trafficlight.states;
 
-//TODO implement a part of the pattern here
+//TO DO implement a part of the pattern here DONE
 
-public abstract class State {
+public abstract class State extends Subject{
 
     public abstract State getNextState();
 
