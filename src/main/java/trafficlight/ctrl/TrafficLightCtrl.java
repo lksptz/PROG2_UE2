@@ -1,6 +1,5 @@
 package trafficlight.ctrl;
 
-import trafficlight.gui.TrafficLight;
 import trafficlight.gui.TrafficLightGui;
 import trafficlight.states.State;
 
@@ -125,5 +124,21 @@ public class TrafficLightCtrl {
 
     public void stop() {
         doRun = false;
+    }
+
+    public State getCurrentState(){
+        return currentState;
+    }
+
+    public State getPreviousState(){
+        return previousState;
+    }
+
+    public void setStates(State currentState, State previousState){
+        if ( (currentState == yellowState && (previousState == greenState || previousState == redState))
+            || ((currentState == greenState || currentState == redState) && previousState == yellowState) ) {
+            this.currentState = currentState;
+            this.previousState = previousState;
+        }
     }
 }
